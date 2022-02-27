@@ -42,7 +42,7 @@ services:
       - "traefik.http.services.api.loadbalancer.server.port=3000"
 
   web:
-    image: mastrogiovanni/caritas-store:v0.0.1
+    image: mastrogiovanni/caritas-store:v0.0.3
     restart: always
     depends_on: 
       - api
