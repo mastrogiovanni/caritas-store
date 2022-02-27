@@ -13,6 +13,11 @@ db.createUser(
 
 for (let c of db.getCollectionNames()) { db.getCollection(c).deleteMany({}) }
 
+db.getCollection("users").insertMany([
+    { name: "Amministratore", username: "admin", password: "ippolito" },
+    { name: "Casa giacinta", username: "giacinta", password: "giacinta" }
+]);
+
 let retailers = db.getCollection("retailers").insertMany([
     {name: "Barilla"}, 
     {name: "Amadori"},
@@ -54,12 +59,3 @@ db.getCollection("products").insertMany([
         retailer: retailers.insertedIds[2]
     }]
 );
-
-db.getCollection("tenants").insertMany([
-    {
-        _id: "620c1909d4d327bdf26083da",
-        name: "Casa Giacinta"
-    }, {
-        name: "Casa D'Onofrio"
-    }
-]);

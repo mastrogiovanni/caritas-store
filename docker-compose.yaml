@@ -29,7 +29,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   api:
-    image: mastrogiovanni/caritas-store-api:main
+    image: mastrogiovanni/caritas-store-api:v0.0.1
     env_file:
       - .env
     restart: always
@@ -42,7 +42,7 @@ services:
       - "traefik.http.services.api.loadbalancer.server.port=3000"
 
   web:
-    image: mastrogiovanni/caritas-store:main
+    image: mastrogiovanni/caritas-store:v0.0.1
     restart: always
     depends_on: 
       - api
