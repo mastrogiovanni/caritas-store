@@ -1,0 +1,3 @@
+[submodule "caritas-store-api"]
+	path = caritas-store-api
+	url = git@github.com:mastrogiovanni/caritas-store-api.git
