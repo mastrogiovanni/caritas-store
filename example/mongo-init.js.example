@@ -11,8 +11,6 @@ db.createUser(
     }
 );
 
-use("caritas-store");
-
 for (let c of db.getCollectionNames()) { db.getCollection(c).deleteMany({}) }
 
 db.getCollection("users").insertMany([
@@ -34,7 +32,8 @@ db.getCollection("products").insertMany([
         unity: "Kg",
         price: 0.7,
         category: "cibo",
-        retailer: retailers.insertedIds[0]
+        retailer: retailers.insertedIds[0],
+        disabled: "false",
     }, {
         name: "Pollo",
         description: "-",
@@ -42,7 +41,8 @@ db.getCollection("products").insertMany([
         unity: "Kg",
         price: 4.5,
         category: "cibo",
-        retailer: retailers.insertedIds[1]
+        retailer: retailers.insertedIds[1],
+        disabled: "false"
     }, {
         name: "Shampo",
         description: "-",
@@ -50,7 +50,8 @@ db.getCollection("products").insertMany([
         unity: "L",
         price: 6.5,
         category: "benessere",
-        retailer: retailers.insertedIds[2]
+        retailer: retailers.insertedIds[2],
+        disabled: "false"
     }, {
         name: "Bagnoschiuma",
         description: "-",
@@ -58,6 +59,7 @@ db.getCollection("products").insertMany([
         unity: "L",
         price: 5.5,
         category: "benessere",
-        retailer: retailers.insertedIds[2]
+        retailer: retailers.insertedIds[2],
+        disabled: "false"
     }]
 );

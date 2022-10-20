@@ -1,52 +1,113 @@
 version: '3.7'
 services:
 
-  mongo:
-    image: mongo:latest
-    container_name: mongo
+  caritas-store-traefik-dev:
+    profiles: ["dev"]
+    image: "traefik:v2.6"
+    restart: unless-stopped
+    command:
+      - "--providers.docker.constraints=Label(`docker.project`,`caritas-store`)"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--api.insecure=true"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  caritas-store-traefik-prod:
+    profiles: ["prod"]
+    image: "traefik:v2.6"
+    command:
+      - "--providers.docker.constraints=Label(`docker.project`,`caritas-store`)"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--api.insecure=true"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=${ACME_EMAIL}"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "443:443/tcp"
+      - "8080:8080"
     restart: always
-    env_file:
-      - .env
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  caritas-store-mongo:
+    profiles: ["dev"]
+    image: mongo:latest
+    restart: on-failure
+    environment:
+      MONGO_INITDB_DATABASE: ${DATABASE_NAME}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
     ports:
       - 27017:27017
     volumes:
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
       - mongodb_data_container:/data/db
 
-  traefik:
-    image: "traefik:v2.6"
-    restart: unless-stopped
-    command:
-      #- "--log.level=DEBUG"
-      - "--api.insecure=true"
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      - "--entrypoints.web.address=:80"
-    ports:
-      - "3000:80"
-      - "8080:8080"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
-
-  api:
-    image: mastrogiovanni/caritas-store-api:v0.0.1
-    env_file:
-      - .env
+  caritas-store-api-prod:
+    profiles: ["prod"]
+    image: mastrogiovanni/caritas-store-api:v0.0.2
     restart: always
     depends_on: 
-      - mongo
+      - caritas-store-traefik-prod
     labels:
+      - "docker.project=caritas-store"
+      - "traefik.enable=true"
+      - "traefik.http.routers.api.entrypoints=websecure"
+      - "traefik.http.routers.api.tls=true"
+      - "traefik.http.routers.api.tls.certresolver=myresolver"
+      - "traefik.http.routers.api.rule=Host(`${NODE_HOST}`) && PathPrefix(`/api`)"
+      - "traefik.http.services.api.loadbalancer.server.port=3000"
+
+  caritas-store-api-dev:
+    profiles: ["dev"]
+    build:
+      context: ./caritas-store-api
+    restart: always
+    depends_on: 
+      - caritas-store-traefik-dev
+      - caritas-store-mongo
+    labels:
+      - "mastrogiovanni.project=caritas-store"
       - "traefik.enable=true"
       - "traefik.http.routers.api.entrypoints=web"
       - "traefik.http.routers.api.rule=PathPrefix(`/api`)"
       - "traefik.http.services.api.loadbalancer.server.port=3000"
 
-  web:
-    image: mastrogiovanni/caritas-store:v0.0.3
+  caritas-store-web-prod:
+    profiles: ["prod"]
+    image: mastrogiovanni/caritas-store-web:v0.0.4
     restart: always
     depends_on: 
-      - api
+      - caritas-store-api-prod
     labels:
+      - "docker.project=caritas-store"
+      - "traefik.enable=true"
+      - "traefik.http.routers.web.entrypoints=websecure"
+      - "traefik.http.routers.web.tls=true"
+      - "traefik.http.routers.web.tls.certresolver=myresolver"
+      - "traefik.http.routers.web.rule=Host(`${NODE_HOST}`) && PathPrefix(`/`)"
+      - "traefik.http.services.web.loadbalancer.server.port=3000"
+
+  caritas-store-web-dev:
+    profiles: ["dev"]
+    build:
+      context: ./caritas-store-web
+    restart: always
+    depends_on: 
+      - caritas-store-api-dev
+    labels:
+      - "mastrogiovanni.project=caritas-store"
       - "traefik.enable=true"
       - "traefik.http.routers.web.entrypoints=web"
       - "traefik.http.routers.web.rule=PathPrefix(`/`)"
