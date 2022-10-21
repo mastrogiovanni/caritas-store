@@ -1,10 +1,8 @@
 <script>
-	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { login } from '$lib/apis.users';
 	import { currentUser } from '$lib/stores';
 	import { onMount } from 'svelte';
-	import { env } from '$env/dynamic/private'
 
 	let username = "";
 	let password = "";
@@ -29,7 +27,6 @@
 	} 
 
 	onMount(() => {
-		console.log("=>", env.API_ENDPOINT)
 		const savedUsername = window.localStorage.getItem('login');
 		if (savedUsername) {
 			const res = JSON.parse(savedUsername);

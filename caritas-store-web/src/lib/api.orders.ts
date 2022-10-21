@@ -1,17 +1,17 @@
-import { env } from '$env/dynamic/private'
+import { env } from '$env/dynamic/public'
 
 export async function orderForTenantAndRequest(idTenant, idRequest) {
-    const response = await fetch(env.API_ENDPOINT + `/order/user/${idTenant}/request/${idRequest}`);
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + `/order/user/${idTenant}/request/${idRequest}`);
     return await response.json();
 }
 
 export async function orderForRetailerAndRequest(idRetailer, idRequest) {
-    const response = await fetch(env.API_ENDPOINT + `/order/retailer/${idRetailer}/request/${idRequest}`);
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + `/order/retailer/${idRetailer}/request/${idRequest}`);
     return await response.json();
 }
 
 export async function upsertOrder(idUser, idRequest, idProduct, quantity) {
-    const response = await fetch(env.API_ENDPOINT + "/order", {
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + "/order", {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'

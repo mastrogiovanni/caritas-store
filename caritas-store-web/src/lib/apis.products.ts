@@ -1,7 +1,7 @@
-import { env } from '$env/dynamic/private'
+import { env } from '$env/dynamic/public'
 
 export async function setProductEnabled(id, enabled) {
-    const response = await fetch(env.API_ENDPOINT + '/product/' + id + '/enabled/' + enabled, {
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + '/product/' + id + '/enabled/' + enabled, {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'
@@ -12,12 +12,12 @@ export async function setProductEnabled(id, enabled) {
 }
 
 export async function loadProducts() {
-    const response = await fetch(env.API_ENDPOINT + '/product');
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + '/product');
     return await response.json();
 }
 
 export async function deleteProduct(id) {
-    const response = await fetch(env.API_ENDPOINT + '/product/' + id, {
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + '/product/' + id, {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ export async function deleteProduct(id) {
 }
 
 export async function newProduct({ name, description, category, retailer, price, unity, orderType }) {
-    const response = await fetch(env.API_ENDPOINT + '/product', {
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + '/product', {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'

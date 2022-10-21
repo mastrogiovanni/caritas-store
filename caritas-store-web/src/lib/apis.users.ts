@@ -1,17 +1,17 @@
-import { env } from '$env/dynamic/private'
+import { env } from '$env/dynamic/public'
 
 export async function loadUsers() {
-    const response = await fetch(env.API_ENDPOINT + '/user');
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + '/user');
     return await response.json();
 }
 
 export async function login(username, password) {
-    const response = await fetch(env.API_ENDPOINT + `/user/login/${username}/${password}`);
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + `/user/login/${username}/${password}`);
     return await response.json();
 }
 
 export async function newUser({ name, username, password }) {
-    const response = await fetch(env.API_ENDPOINT + '/user', {
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + '/user', {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ export async function newUser({ name, username, password }) {
 }
 
 export async function setName(id, name) {
-    const response = await fetch(env.API_ENDPOINT + '/user/' + id, {
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + '/user/' + id, {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ export async function setName(id, name) {
 } 
 
 export async function deleteUser(id) {
-    const response = await fetch(env.API_ENDPOINT + '/user/' + id, {
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + '/user/' + id, {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'

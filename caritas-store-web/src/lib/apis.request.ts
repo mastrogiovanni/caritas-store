@@ -1,17 +1,17 @@
-import { env } from '$env/dynamic/private'
+import { env } from '$env/dynamic/public'
 
 export async function loadRequest(id) {
-    const response = await fetch(env.API_ENDPOINT + '/orderrequest/' + id);
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + '/orderrequest/' + id);
     return await response.json();
 }
 
 export async function currentRequest() {
-    const response = await fetch(env.API_ENDPOINT + '/orderrequest');
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + '/orderrequest');
     return await response.json();
 }
 
 export async function allRequests() {
-    const response = await fetch(env.API_ENDPOINT + '/orderrequests');
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + '/orderrequests');
     return await response.json();
 }
 
@@ -25,7 +25,7 @@ interface Request {
 */
 
 export async function newRequest({ from, to, type, notes }) {
-    const response = await fetch(env.API_ENDPOINT + '/orderrequest', {
+    const response = await fetch(env.PUBLIC_API_ENDPOINT + '/orderrequest', {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'
