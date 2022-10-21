@@ -16,14 +16,22 @@ Enter in the caritas-store-web and run:
 API_ENDPOINT=http://localhost:3000/api PORT=4000 npm run dev
 ```
 
-Enter in the `caritas-store-api` and run:
+Enter in the `caritas-store-api` and start the database MongoDB:
 
 ```
-npm run start:dev
+docker-compose up
+```
+
+Then start the backend:
+
+```
+DATABASE_NAME=caritas-store MONGO_URL=mongodb://admin:admin@localhost:27017 npm run start:dev
 ```
 
 Now you can modify both backend and frontend to fix bugs or add features without rebuild the whole code.
+Database is accessible on your localhost (port 27017) with the following URI: `mongodb://admin:admin@localhost:27017/`
 
+Access the app at `http://localhost:4000`
 
 # Run in Dev mode
 
@@ -52,31 +60,21 @@ Those containers will be pushed on docker hub:
 - mastrogiovanni/caritas-store-web:vX.Y.Z
 - mastrogiovanni/caritas-store-api:vX.Y.Z
 
-
 Create a `.env` file with the following:
 
 ```
-DATABASE_NAME=name
-MONGO_INITDB_ROOT_USERNAME=admin
-MONGO_INITDB_ROOT_PASSWORD=admin
-```
-
-
-
-Deploy the server in a public place and add DNS information to `.env`:
-
-```
-# For example...
-NODE_HOST=etaireia.xxx.yyy
+DATABASE_NAME=caritas-store
+MONGO_URL=<Mongo Db Url (e.g. Mongo Atlas)>
+ACME_EMAIL=<Your email>
+NODE_HOST=<Host were platform is exposed>
 ```
 
 Run the application (prod mode) with the following:
 
 ```
-docker-compose --env-file .env --profile prod up --build
+docker-compose --env-file .env --profile prod up
 ```
 
 Access the app at `https://${NODE_HOST}`
 
 where `NODE_HOST` is the domain specified in the `.env` file
-

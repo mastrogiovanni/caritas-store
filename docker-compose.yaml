@@ -56,7 +56,7 @@ services:
 
   caritas-store-api-prod:
     profiles: ["prod"]
-    image: mastrogiovanni/caritas-store-api:v0.0.2
+    image: mastrogiovanni/caritas-store-api:v0.0.1
     restart: always
     depends_on: 
       - caritas-store-traefik-prod
@@ -68,6 +68,10 @@ services:
       - "traefik.http.routers.api.tls.certresolver=myresolver"
       - "traefik.http.routers.api.rule=Host(`${NODE_HOST}`) && PathPrefix(`/api`)"
       - "traefik.http.services.api.loadbalancer.server.port=3000"
+    environment:
+      - DATABASE_NAME=${DATABASE_NAME}
+      - MONGO_URL=${MONGO_URL}
+    command: "npm run start:prod"
 
   caritas-store-api-dev:
     profiles: ["dev"]
@@ -84,10 +88,13 @@ services:
       - "traefik.http.routers.api.entrypoints=web"
       - "traefik.http.routers.api.rule=PathPrefix(`/api`)"
       - "traefik.http.services.api.loadbalancer.server.port=3000"
+    environment:
+      - DATABASE_NAME=caritas-store
+      - MONGO_URL=mongodb://admin:admin@caritas-store-mongo:27017
 
   caritas-store-web-prod:
     profiles: ["prod"]
-    image: mastrogiovanni/caritas-store-web:v0.0.6
+    image: mastrogiovanni/caritas-store-web:v0.0.1
     restart: always
     depends_on: 
       - caritas-store-api-prod
@@ -99,6 +106,9 @@ services:
       - "traefik.http.routers.web.tls.certresolver=myresolver"
       - "traefik.http.routers.web.rule=Host(`${NODE_HOST}`) && PathPrefix(`/`)"
       - "traefik.http.services.web.loadbalancer.server.port=3000"
+    environment:
+      - PORT=3000
+      - PUBLIC_API_ENDPOINT=/api
 
   caritas-store-web-dev:
     profiles: ["dev"]
