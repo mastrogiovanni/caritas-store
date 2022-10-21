@@ -86,7 +86,7 @@ services:
 
   caritas-store-web-prod:
     profiles: ["prod"]
-    image: mastrogiovanni/caritas-store-web:v0.0.4
+    image: mastrogiovanni/caritas-store-web:v0.0.6
     restart: always
     depends_on: 
       - caritas-store-api-prod
