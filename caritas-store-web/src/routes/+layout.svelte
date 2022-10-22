@@ -5,7 +5,6 @@
 
 	onMount(() => {
 		if (!$currentUser) {
-			console.log("Go to login page")
 			goto("/login")
 		}
 	}) 

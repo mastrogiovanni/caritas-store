@@ -1,11 +1,7 @@
 <script>
 	import Dropzone from 'svelte-file-dropzone';
 	import { onMount } from 'svelte';
-	import { deleteProduct, loadProducts, newProduct } from '$lib/apis.products';
-	import { slide, fade } from 'svelte/transition';
-	import Retailers from '$lib/components/Retailers.svelte';
-	import Retailer from '$lib/components/Retailer.svelte';
-import { deleteUser, loadUsers, newUser } from '$lib/apis.users';
+	import { deleteUser, loadUsers, newUser } from '$lib/apis.users';
 
 	let users = [];
 
@@ -63,7 +59,7 @@ import { deleteUser, loadUsers, newUser } from '$lib/apis.users';
 
 	<h1>Nuovo Utente</h1>
 
-	<form transition:slide>
+	<form>
 		<div class="row">
 			<div class="col">
 				<div class="mb-3">
@@ -128,7 +124,7 @@ import { deleteUser, loadUsers, newUser } from '$lib/apis.users';
 	</thead>
 	<tbody>
 		{#each users as user (user._id)}
-			<tr transition:fade>
+			<tr>
 				<th scope="row">{user._id}</th>
 				<td>{user.name}</td>
 				<td>{user.password}</td>

@@ -4,22 +4,37 @@
 	import { allRequests, newRequest } from "$lib/apis.request";
     import * as moment from 'moment';
 
+	let requests = [];
+
+	let adding = false;
+
 	let from = undefined;
 	let to = undefined;
 	let type = undefined;
 	let notes = undefined;
 
-	let adding = false;
-	let requests = [];
+	async function _loadRequests() {
+		requests = await allRequests();
+
+	}
 
 	async function save() {
 		adding = false;
-		await newRequest({ from, to, type, notes });
-		requests = await allRequests();
+		await newRequest({ 
+			from, 
+			to, 
+			type, 
+			notes 
+		});
+		from = undefined;
+		to = undefined;
+		type = undefined;
+		notes = undefined;
+		await _loadRequests();
 	}
 
 	onMount(async () => {
-		requests = await allRequests();
+		await _loadRequests();
 	}) 
 </script>
 
@@ -39,7 +54,7 @@
 </div>
 
 <div class="list-group">
-	{#each requests as request, i (request._id)}
+	{#each requests as request (request._id)}
 		<a
 			href="#!"
 			class="list-group-item list-group-item-action active"

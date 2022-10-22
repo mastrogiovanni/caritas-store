@@ -29,13 +29,16 @@ DATABASE_NAME=caritas-store MONGO_URL=mongodb://admin:admin@localhost:27017 npm 
 ```
 
 Now you can modify both backend and frontend to fix bugs or add features without rebuild the whole code.
-Database is accessible on your localhost (port 27017) with the following URI: `mongodb://admin:admin@localhost:27017/`
 
 Access the app at `http://localhost:4000`
 
+Database is accessible on your localhost (port 27017) with the following URI: `mongodb://admin:admin@localhost:27017/`
+
 # Run in Dev mode
 
-Once the frontend/backend are stable enough you can run them locally in containerized way:
+Once the frontend/backend are stable enough you may want to run them using containers.
+With the following command you build containers and run a full stack with traefik as 
+load balancer (with proper routing) and mongodb as database.
 
 ```
 docker-compose --profile dev up --build
@@ -43,12 +46,11 @@ docker-compose --profile dev up --build
 
 Access the app at `http://localhost`
 
-The previous command will build application and provide a containerized stack with traefik as load balancer
-and the two microservices (frontend and backend) with proper routing.
+Database is accessible on your localhost (port 27017) with the following URI: `mongodb://admin:admin@localhost:27017/`
 
 # Run in Prod mode
 
-Once the code is tested in staging you can release it tagging the github repo:
+Once the code is tested in "Dev mode" and the code is pushed on github you can release it tagging the repo:
 
 ```
 git tag -a vX.Y.Z -m "Release X.Y.Z"

@@ -1,7 +1,6 @@
 <script>
     import { onMount } from "svelte";
 	import { loadRetailers, newRetailer } from "$lib/apis.retailer";
-	import { slide, fade } from 'svelte/transition';
 
     let retailers = []; 
 	let adding = false;
@@ -38,7 +37,7 @@
 </div>
 
 {#if adding}
-	<form transition:slide>
+	<form>
 		<div class="mb-3">
 			<label for="name" class="form-label">Nome</label>
 			<input

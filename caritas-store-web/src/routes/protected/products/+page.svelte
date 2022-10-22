@@ -1,7 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
 	import { deleteProduct, loadProducts, newProduct, setProductEnabled } from '$lib/apis.products';
-	import { slide, fade } from 'svelte/transition';
 	import Retailers from '$lib/components/Retailers.svelte';
 	import Retailer from '$lib/components/Retailer.svelte';
 
@@ -211,7 +210,7 @@
 	</Dropzone>
 	-->
 
-	<form transition:slide>
+	<form>
 		<div class="row">
 			<div class="col">
 				<div class="mb-3">
@@ -326,7 +325,7 @@
 	</thead>
 	<tbody>
 		{#each products as product (product._id)}
-			<tr transition:fade>
+			<tr>
 				<th scope="row">{product._id}</th>
 				<td>{product.name}</td>
 				<td>{product.description}</td>
