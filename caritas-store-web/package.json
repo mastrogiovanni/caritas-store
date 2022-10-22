@@ -1,6 +1,6 @@
 {
-	"name": "test-kit",
-	"version": "0.0.1",
+	"name": "caritas-store-web",
+	"version": "0.0.2",
 	"scripts": {
 		"dev": "vite dev --host 0.0.0.0 --port ${PORT:-3000}",
 		"build": "vite build",
