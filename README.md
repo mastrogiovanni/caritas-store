@@ -13,7 +13,7 @@ git clone git@github.com:mastrogiovanni/caritas-store.git
 Enter in the caritas-store-web and run:
 
 ```
-API_ENDPOINT=http://localhost:3000/api PORT=4000 npm run dev
+PUBLIC_API_ENDPOINT=http://localhost:3000/api PORT=4000 npm run dev
 ```
 
 Enter in the `caritas-store-api` and start the database MongoDB:

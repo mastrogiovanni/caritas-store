@@ -10,18 +10,18 @@
     import Retailer from "$lib/components/Retailer.svelte";
 
     let orderRequest = undefined;
-    let currentTenant = $currentUser?.id;
+    let currentTenant = undefined;
     let orders = [];
     let products = [];
     
-    onMount(async () => {
-        // orderRequest = await currentRequest();
-        onUser($currentUser.id);
-    })
+    $: {
+        if ($currentUser?.id) {
+            onUser($currentUser.id);
+        }
+    }
 
     async function reloadData() {
-        if (orderRequest) {
-            console.log("Current Tenant", currentTenant)
+        if (orderRequest && currentTenant) {
             orders = await orderForTenantAndRequest(currentTenant, orderRequest._id);
             products = await loadProducts();
             // Filter only right based on the order
@@ -29,9 +29,7 @@
                 (item.orderType === orderRequest.type) || 
                 (item.orderType === "all")
             ));
-
             products = products.filter(item => item.disabled !== "true")
-
             products = products.map(item => {
                 const list = orders.filter(order => order.product === item._id)
                 if (list && list.length > 0) {
@@ -121,7 +119,11 @@
         <tbody>
             {#each products as product (product._id)}
                 <tr>
-                    <td>{product.name || ''}<br/>{product.description || ''}</td>
+                    <td>{product.name || ''}
+                        {#if product.description !== '-' && product.description}
+                        <br/>{product.description || ''}
+                        {/if}
+                    </td>
                     <td>{product.category}</td>
                     <td><Retailer id={product.retailer} /></td>
                     <td>{product.price}</td>

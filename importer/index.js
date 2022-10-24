@@ -1,9 +1,8 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const { MongoClient, ObjectId } = require("mongodb");
+const creds = require("./caritas-store.json");
 
 require('dotenv').config()
-
-const creds = require("./caritas-store.json");
 
 async function accessspreadsheet() {
 
@@ -38,11 +37,11 @@ async function accessspreadsheet() {
             result.push({
                 name: row.desc.trim(),
                 description: '-',
-                orderType: "weekly",
-                unit: row.unit,
+                orderType: "all",
+                unity: row.unit,
                 price: Number(row.price.replaceAll("€ ", "").replaceAll(",", ".").trim()),
-                category: "cibo",
-                retailer: new ObjectId("6343df98160eaa079a3f85a5"),
+                category: "Frutta e Verdura",
+                retailer: new ObjectId(process.env.FORNITORE_ID),
                 disabled: "false",
             })
         }
@@ -70,7 +69,7 @@ function uploadData(result) {
     async function run() {
         try {
             const database = client.db(process.env.DATABASE_NAME);
-            const products = database.collection('products_new');
+            const products = database.collection('products');
 
             for (let item of result) {
                 const query = {
