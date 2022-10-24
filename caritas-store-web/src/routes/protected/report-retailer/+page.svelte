@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { allRequests } from "$lib/apis.request";
-    import * as moment from 'moment';
+    import moment from 'moment';
     import ReportPerRetailer from "$lib/components/ReportPerRetailer.svelte";
     import RetailerList from "$lib/components/RetailerList.svelte";
 
@@ -35,12 +35,12 @@
 			class="list-group-item list-group-item-action {i === selected ? 'active' : ''}"
 			aria-current={i === selected}
 		>
-            {moment(new Date(request.from)).format("MMM Do")} 
+            {request?.from ? moment(new Date(request.from)).format("MMM Do") : ""} 
             - 
-            {moment(new Date(request.to)).format("MMM Do")}
+            {request?.to ? moment(new Date(request.to)).format("MMM Do") : ""}
             ({request.type})
-            - {request.notes || ''}
-
+            - 
+            {request.notes || ''}
 		</a>
 	{/each}
 </div>

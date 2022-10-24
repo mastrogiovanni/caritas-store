@@ -1,0 +1,592 @@
+[
+  {
+    "name": "Albicocche ",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.70",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Ananas ",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.80",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Anguria da 10 kg ",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "nr",
+    "price": "8.00",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Anguria piccola ",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.25",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Arancia",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.60",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Banane",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.60",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Kiwi",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.90",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Limoni",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.55",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Loti ",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.40",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Loti vaniglia",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.40",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Mele deliziose",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.15",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Mele golden",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.10",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Meloni gialli invernali ",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.45",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Meloni retati da 1,100 kg circa",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "nr",
+    "price": "1.48",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Pere ",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.50",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Pesche",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.70",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Pesche noci ",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.80",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Prugne bianche",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.70",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Prugne rosse",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.65",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Uva bianca",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "2.30",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Uva nera",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "2.30",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Zenzero",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "3.20",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Aglio",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "testa",
+    "price": "1.96",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Basilico a mazzo",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Nr",
+    "price": "0.75",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Bietina",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "1.35",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Canasta",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.20",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Carote",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "0.80",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Cavolfiore",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.50",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Cavolo verza riccio",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.20",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Cavolo cappuccio o crauto",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "1.30",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Cavolo crauto rosso",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.65",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Cetrioli ",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "1.50",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Cicorietta ",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "1.60",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Cipolle bianche",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.15",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Cipolle dorate",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "0.95",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Cipolle rosse",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.15",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Finocchi",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "1.65",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Funghi Champignon medi",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "2.90",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Insalata iceberg",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "1.65",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Insalata cappuccina",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.30",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Insalata indivia",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.15",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Lattuga",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "1.30",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Melanzane nere",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "1.40",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Patate",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "0.90",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Peperoni rossi",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "2.00",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Peperoni gialli",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "2.00",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Pomodoro piccadilly",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "2.60",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Pomodoro insalataro",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "1.70",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Pomodoro ciliegino",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "1.80",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Pomodori grappolo tondo rosso",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "1.80",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Pomodori da riso circa 200 gr ",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "nr",
+    "price": "0.42",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Prezzemolo a mazzo",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "mazzo",
+    "price": "0.70",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Radicchio chioggia tondo",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.90",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Rughetta a mazzi",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "mazzo",
+    "price": "0.55",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Scarola",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.10",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Sedano",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Nr",
+    "price": "0.90",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Salvia a mazzetto",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Nr",
+    "price": "0.65",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Zucca gialla",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "kg",
+    "price": "1.05",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  },
+  {
+    "name": "Zucchine ",
+    "description": "-",
+    "orderType": "weekly",
+    "unit": "Kg",
+    "price": "1.95",
+    "category": "cibo",
+    "retailer": "xyz",
+    "disabled": false
+  }
+]

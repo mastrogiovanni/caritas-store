@@ -2,20 +2,34 @@
 	import { onMount } from "svelte";
 	import RequestType from "$lib/components/RequestType.svelte";
 	import { allRequests, newRequest } from "$lib/apis.request";
-    import * as moment from 'moment';
+    import moment from 'moment';
 
+	/**
+	 * @type {any[]}
+	 */
 	let requests = [];
 
 	let adding = false;
 
+	/**
+	 * @type {undefined}
+	 */
 	let from = undefined;
-	let to = undefined;
-	let type = undefined;
-	let notes = undefined;
+	/**
+	 * @type {undefined}
+	 */
+	 let to = undefined;
+	/**
+	 * @type {undefined}
+	 */
+	 let type = undefined;
+	/**
+	 * @type {undefined}
+	 */
+	 let notes = undefined;
 
 	async function _loadRequests() {
 		requests = await allRequests();
-
 	}
 
 	async function save() {
@@ -60,11 +74,12 @@
 			class="list-group-item list-group-item-action active"
 			aria-current={true}
 		>
-            {moment(new Date(request.from)).format("MMM Do")} 
+            {request?.from ? moment(new Date(request.from)).format("MMM Do") : ""} 
             - 
-            {moment(new Date(request.to)).format("MMM Do")}
+            {request?.to ? moment(new Date(request.to)).format("MMM Do") : ""}
             ({request.type})
-            - {request.notes || ''}
+            - 
+			{request.notes || ''}
 
 		</a>
 	{/each}

@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import * as moment from 'moment';
+    import moment from 'moment';
     import { orderForTenantAndRequest, upsertOrder } from "$lib/api.orders";
     import { currentRequest } from "$lib/apis.request";
     import { loadProducts } from "$lib/apis.products";

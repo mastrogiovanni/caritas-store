@@ -1,2 +1,4 @@
 .env
 letsencrypt
+**/node_modules
+

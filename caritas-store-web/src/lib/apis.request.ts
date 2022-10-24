@@ -27,7 +27,7 @@ interface Request {
 export async function newRequest({ from, to, type, notes }) {
     const response = await fetch(env.PUBLIC_API_ENDPOINT + '/orderrequest', {
         headers: {
-            Accept: 'application/json',
+            'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         method: 'POST',
@@ -38,5 +38,5 @@ export async function newRequest({ from, to, type, notes }) {
             notes
         })
     });
-    return response.json();
+    return await response.json();
 }

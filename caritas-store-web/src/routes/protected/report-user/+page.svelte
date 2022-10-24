@@ -1,14 +1,20 @@
 <script>
     import { onMount } from "svelte";
     import { allRequests } from "$lib/apis.request";
-    import * as moment from 'moment';
+    import moment from 'moment';
     import TenantList from "$lib/components/TenantList.svelte";
-import ReportPerTenant from "$lib/components/ReportPerTenant.svelte";
+    import ReportPerTenant from "$lib/components/ReportPerTenant.svelte";
 
     let requests = [];
+
     let selected = -1;
     let tenant = undefined;
     let request = undefined;
+
+    function select(index) {
+        selected = index;
+        request = requests[selected]._id;
+    }
 
     onMount(async () => {
         requests = await allRequests();
@@ -16,12 +22,6 @@ import ReportPerTenant from "$lib/components/ReportPerTenant.svelte";
             select(0);
         }
     })
-
-    function select(index) {
-        selected = index;
-        request = requests[selected]._id;
-    }
-
 
 </script>
 
@@ -35,12 +35,12 @@ import ReportPerTenant from "$lib/components/ReportPerTenant.svelte";
 			class="list-group-item list-group-item-action {i === selected ? 'active' : ''}"
 			aria-current={i === selected}
 		>
-            {moment(new Date(request.from)).format("MMM Do")} 
+            {request?.from ? moment(new Date(request.from)).format("MMM Do") : ""}
             - 
-            {moment(new Date(request.to)).format("MMM Do")}
+            {request?.to ? moment(new Date(request.to)).format("MMM Do") : ""}
             ({request.type})
-            - {request.notes || ''}
-
+            - 
+            {request.notes || ''}
 		</a>
 	{/each}
 </div>

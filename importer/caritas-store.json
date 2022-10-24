@@ -1,0 +1,12 @@
+{
+    "type": "service_account",
+    "project_id": "caritas-336315",
+    "private_key_id": "eba1a0d54b8ce49ae3efff92c7a4a7d71244c203",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQClR2Jo+nAY10Pb\nLKztYGjB0XwFS9kJIpwMqhoarYGfpzhvOyoX6s6xV/1xYZznD47+LqPMcfFzDWlX\nJF0a30H4Xs+vfF3jRwk+yAWa3Une0/qfJ5Nt6CjTPKL4r+h848NlKfISUz+3wVek\nSuXJTJGUhxlDX/JUHcln6Zj8TYFmyY3UJy6N/cxxQJZKu+hiGTgOwMfJh9wVP88S\nrFgA5KPQBUGyv7PX+hHqqPnqaoax5OK3HJTS5b3ClckuVa/eqzaHzjiLM0AGo7OL\nAdWjBbUQhkBVoDqi5iaIglzR5e8IAe9YT1PubQXovqu4v1C+WVp8ro04grrTBww4\nyUNaGCPTAgMBAAECggEAAMdHSrXzP+AJAnKWwJTK/tldENanR7MRXRXoAubSTM2I\nJy32KCADp94sOWkmSLL6uhkUzb+zosEWFUJR60XQlQ+NQYb/wjRGx4mVooHBo/pc\n8dGekM6ecprp1utX2E68+tr/DYsK1R4PVZzCBvgEr4MQtrqFn6khlmBenMGYscKQ\np2pCReHpoNpMCqC4mr+jH9UwfmTAMxQa5iIn/YPuehlf07vdxlmrwBQTov7U41z/\n8vIN19VNJPGebWA+3WpXPM76dBMzjgP1306gZHtoC9uUXpAcc2azCv9yR/O5kzq3\nLx+at/nsiuHj6AhywGzXo+P5JCg4a9I5yfQOnT1+wQKBgQDVVeFxOIyLvP4cyUAd\nUkBcA9A8KwokOe/VczHICOyDY0XXHhZkKdvSNHEKQ60QzPn4N7pdwl12Vf9adWZD\nD3TXYEiYKw68c4Bj7TtdyvReqrxakR1YZ7eXLmCoxB8lduEhJ+DD3FC8ofzYxSia\nhmgSCRv6dHo4bDR1gIDh7Z6YAwKBgQDGVScI90r0UecOBqgcOjiejkX5/sWohECD\nGediWVjkrziQ6yunagQtrGjUON/WfisSWlXzJkCx7v7m/GLI3+feekfCVexscusB\ntbCZwh4rU9pL8FiTBArOFSoKzr06H4oRx0biQAW9RdhkbphFzh6RYaWfX+6Ye9mM\nEOCDvAED8QKBgQDNSQ7fPGNCNGLyoFYp4PQ9lw3SWDgyE+5Nn8PPkYbGB8k076bs\nS7tT01LTZbwr5pLD4BxeDKKTNL279iypaz4r4mL4yrYrcZmijq4J2zq7vd/x5qIu\nZ9+qgt5QiCjQjEym8xC+aErouZftoAsqZxvN/yYFJABYOwdf6oAa5+UssQKBgQCv\nNXqOiShGPjSIR4krpqNuLvHSsCedf3geWTv3vkaxf7nRDHA8LYQTdUQGd1gG/N7A\nD93uN9TfW+sD0+LQ4jzMZeoO3ClIhRznHcMtkjdkv2cRvvoApomFFV1WvtycBFDM\n8+bC6Rwo4RMRZkJPKJAIjuLpsK3vNzowaphsyCF9gQKBgQDArYW9439vKmdV4VBo\nMlyqmfOOdbDF8NYkiYfibHky8clMOzmL3dq85yK2SZOwu/0EWufFKJ8U2NecBF51\negoFuBhNb7Rdo2yPxZ5+v22BN1aWH2gFfre3JZs8Ws63PVEFbGTP53g5oJS4O1Ao\nBEFirf7xxDFH0ghP3gLg6r0dzw==\n-----END PRIVATE KEY-----\n",
+    "client_email": "caritas-store@caritas-336315.iam.gserviceaccount.com",
+    "client_id": "102588570786675143175",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/caritas-store%40caritas-336315.iam.gserviceaccount.com"
+}

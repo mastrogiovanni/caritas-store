@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { currentRequest } from "$lib/apis.request";
-    import * as moment from 'moment';
+    import moment from 'moment';
 
     export let select = undefined;
 

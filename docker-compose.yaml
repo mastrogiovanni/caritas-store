@@ -18,7 +18,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   caritas-store-traefik-prod:
-    profiles: ["prod"]
+    profiles: ["prod", "prod-watch"]
     image: "traefik:v2.6"
     command:
       - "--providers.docker.constraints=Label(`docker.project`,`caritas-store`)"
@@ -56,7 +56,27 @@ services:
 
   caritas-store-api-prod:
     profiles: ["prod"]
-    image: mastrogiovanni/caritas-store-api:v0.0.1
+    image: mastrogiovanni/caritas-store-api:v0.0.2
+    restart: always
+    depends_on: 
+      - caritas-store-traefik-prod
+    labels:
+      - "docker.project=caritas-store"
+      - "traefik.enable=true"
+      - "traefik.http.routers.api.entrypoints=websecure"
+      - "traefik.http.routers.api.tls=true"
+      - "traefik.http.routers.api.tls.certresolver=myresolver"
+      - "traefik.http.routers.api.rule=Host(`${NODE_HOST}`) && PathPrefix(`/api`)"
+      - "traefik.http.services.api.loadbalancer.server.port=3000"
+    environment:
+      - DATABASE_NAME=${DATABASE_NAME}
+      - MONGO_URL=${MONGO_URL}
+    command: "npm run start:prod"
+
+  caritas-store-api-prod-watch:
+    profiles: ["prod-watch"]
+    build:
+      context: ./caritas-store-api
     restart: always
     depends_on: 
       - caritas-store-traefik-prod
@@ -94,10 +114,29 @@ services:
 
   caritas-store-web-prod:
     profiles: ["prod"]
-    image: mastrogiovanni/caritas-store-web:v0.0.1
+    image: mastrogiovanni/caritas-store-web:v0.0.2
     restart: always
     depends_on: 
       - caritas-store-api-prod
+    labels:
+      - "docker.project=caritas-store"
+      - "traefik.enable=true"
+      - "traefik.http.routers.web.entrypoints=websecure"
+      - "traefik.http.routers.web.tls=true"
+      - "traefik.http.routers.web.tls.certresolver=myresolver"
+      - "traefik.http.routers.web.rule=Host(`${NODE_HOST}`) && PathPrefix(`/`)"
+      - "traefik.http.services.web.loadbalancer.server.port=3000"
+    environment:
+      - PORT=3000
+      - PUBLIC_API_ENDPOINT=/api
+
+  caritas-store-web-prod-watch:
+    profiles: ["prod-watch"]
+    build:
+      context: ./caritas-store-web
+    restart: always
+    depends_on: 
+      - caritas-store-api-prod-watch
     labels:
       - "docker.project=caritas-store"
       - "traefik.enable=true"

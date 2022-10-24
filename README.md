@@ -48,6 +48,12 @@ Access the app at `http://localhost`
 
 Database is accessible on your localhost (port 27017) with the following URI: `mongodb://admin:admin@localhost:27017/`
 
+# Run in Prod mode (Watch)
+
+```
+docker-compose --env-file .env --profile prod-watch up --build
+```
+
 # Run in Prod mode
 
 Once the code is tested in "Dev mode" and the code is pushed on github you can release it tagging the repo:
